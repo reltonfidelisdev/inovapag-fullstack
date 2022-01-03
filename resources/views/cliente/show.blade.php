@@ -24,16 +24,22 @@
                                 <hr>
                                 <div class="mb-3 mt-2">
                                     @if ( $newCliente->logradouro !== null )
-                                    <p><b>Endereço:</b> {{ $newCliente->logradouro }},{{ $newCliente->numero }}, {{ $newCliente->cep }},
+                                    <p><b>Endereço:</b>
+                                        {{ $newCliente->logradouro }},{{ $newCliente->numero }}, {{ $newCliente->cep }},
                                         {{ $newCliente->bairro }}, {{ $newCliente->cidade }} / {{ $newCliente->estado }}
                                     </p>
                                     <hr>
-                                    <p>
-                                        <b>Complemento:</b> {{ $newCliente->complemento }}
-                                    </p>
+                                    <p><b>Complemento:</b> {{ $newCliente->complemento }}</p>
                                     <hr>
-                                    <p>
-                                        <b>Ponto de Referência:</b> {{ $newCliente->pontoReferencia }}
+                                    <p><b>Ponto de Referência:</b> {{ $newCliente->pontoReferencia }}</p>
+                                    @endif
+
+                                    @if ( $newCliente->celularPrincipal !== null )
+                                    <hr>
+                                    <p><b>Celular:</b>
+                                        {{ $newCliente->celularPrincipal }}
+                                        <b>Fixo:</b> {{ $newCliente->fixoProprio }}
+                                        <b>Recados:</b> {{ $newCliente->fixoRecados }}
                                     </p>
                                     @endif
                                 </div>
@@ -43,7 +49,10 @@
                                 @if ($newCliente->logradouro == null)
                                 <a class="btn btn-success" href=" {{ "/endereco/create/" . $newCliente->uid }}"><i class="bi bi-map"></i> Endereço</a>
                                 @endif
-                                <a class="btn btn-success" href=" {{ "/endereco/create/" . $newCliente->uid }}"><i class="bi bi-telephone"></i> Telefones</a>
+                                @if ($newCliente->logradouro == null)
+                                <a class="btn btn-success" href=" {{ "/telefone/create/" . $newCliente->uid }}"><i class="bi bi-telephone"></i> Telefones</a>
+                                @endif
+
                                 <a class="btn btn-success" href=" {{ "/endereco/create/" . $newCliente->uid }}"><i class="bi bi-map"></i> Emails</a>
                                 <a class="btn btn-success" href=" {{ "/endereco/create/" . $newCliente->uid }}"><i class="bi bi-map"></i> Dados Bancários</a>
 

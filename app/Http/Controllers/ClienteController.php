@@ -80,7 +80,8 @@ class ClienteController extends Controller
     public function show(Request $request, $uid)
     {
         $clienteExiste = DB::table('clientes')
-            ->leftJoin('enderecos', 'cliente_id', '=', 'clientes.id')
+            ->leftJoin('enderecos', 'enderecos.cliente_id', '=', 'clientes.id')
+            ->leftJoin('telefones', 'telefones.cliente_id', '=', 'clientes.id')
             ->where('clientes.uid', $uid)->get();
         //dd($clienteExiste);
         // Cliente::where('uid', $uid)->get();
