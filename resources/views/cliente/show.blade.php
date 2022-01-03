@@ -15,46 +15,55 @@
                     <div class="card" id="form-endereco">
                         <form action="/eneco/create/" method="POST">
                             <input type="hidden" name="">
-                        @foreach($cliente as $newCliente)
+                        @foreach($cliente as $dadosCliente)
                             <div class="card-header">
-                                <h4 class="card-title">{{ $newCliente->nomeCompleto }}</h4>
+                                <h4 class="card-title">{{ $dadosCliente->nomeCompleto }}</h4>
                             </div>
                             <div class="card-body">
-                                <p>CPF: {{ $newCliente->cpf }}</p>
+                                <p>CPF: {{ $dadosCliente->cpf }}</p>
                                 <hr>
                                 <div class="mb-3 mt-2">
-                                    @if ( $newCliente->logradouro !== null )
+                                    @if ( $dadosCliente->logradouro !== null )
                                     <p><b>Endereço:</b>
-                                        {{ $newCliente->logradouro }},{{ $newCliente->numero }}, {{ $newCliente->cep }},
-                                        {{ $newCliente->bairro }}, {{ $newCliente->cidade }} / {{ $newCliente->estado }}
+                                        {{ $dadosCliente->logradouro }},{{ $dadosCliente->numero }}, {{ $dadosCliente->cep }},
+                                        {{ $dadosCliente->bairro }}, {{ $dadosCliente->cidade }} / {{ $dadosCliente->estado }}
                                     </p>
                                     <hr>
-                                    <p><b>Complemento:</b> {{ $newCliente->complemento }}</p>
+                                    <p><b>Complemento:</b> {{ $dadosCliente->complemento }}</p>
                                     <hr>
-                                    <p><b>Ponto de Referência:</b> {{ $newCliente->pontoReferencia }}</p>
+                                    <p><b>Ponto de Referência:</b> {{ $dadosCliente->pontoReferencia }}</p>
                                     @endif
 
-                                    @if ( $newCliente->celularPrincipal !== null )
+                                    @if ( $dadosCliente->celularPrincipal !== null )
                                     <hr>
                                     <p><b>Celular:</b>
-                                        {{ $newCliente->celularPrincipal }}
-                                        <b>Fixo:</b> {{ $newCliente->fixoProprio }}
-                                        <b>Recados:</b> {{ $newCliente->fixoRecados }}
+                                        {{ $dadosCliente->celularPrincipal }}
+                                        <b>Fixo:</b> {{ $dadosCliente->fixoProprio }}
+                                        <b>Recados:</b> {{ $dadosCliente->fixoRecados }}
+                                    </p>
+                                    @endif
+                                    @if ( $dadosCliente->emailPrincipal !== null )
+                                    <hr>
+                                    <p><b>Email Principal:</b>
+                                        {{ $dadosCliente->emailPrincipal }}
+                                        <b>Email Secundário:</b> {{ $dadosCliente->emailSecundario }}
                                     </p>
                                     @endif
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <p>Adicionar informações do cliente:</p>
-                                @if ($newCliente->logradouro == null)
-                                <a class="btn btn-success" href=" {{ "/endereco/create/" . $newCliente->uid }}"><i class="bi bi-map"></i> Endereço</a>
+                                @if ($dadosCliente->logradouro == null)
+                                <a class="btn btn-success" href=" {{ "/endereco/create/" . $dadosCliente->uid }}"><i class="bi bi-map"></i> Endereço</a>
                                 @endif
-                                @if ($newCliente->logradouro == null)
-                                <a class="btn btn-success" href=" {{ "/telefone/create/" . $newCliente->uid }}"><i class="bi bi-telephone"></i> Telefones</a>
+                                @if ($dadosCliente->celularPrincipal == null)
+                                <a class="btn btn-success" href=" {{ "/telefone/create/" . $dadosCliente->uid }}"><i class="bi bi-telephone"></i> Telefones</a>
+                                @endif
+                                @if ($dadosCliente->emailPrincipal == null)
+                                <a class="btn btn-success" href=" {{ "/email/create/" . $dadosCliente->uid }}"><i class="bi bi-map"></i> Emails</a>
                                 @endif
 
-                                <a class="btn btn-success" href=" {{ "/endereco/create/" . $newCliente->uid }}"><i class="bi bi-map"></i> Emails</a>
-                                <a class="btn btn-success" href=" {{ "/endereco/create/" . $newCliente->uid }}"><i class="bi bi-map"></i> Dados Bancários</a>
+                                <a class="btn btn-success" href=" {{ "/endereco/create/" . $dadosCliente->uid }}"><i class="bi bi-map"></i> Dados Bancários</a>
 
 
                             </div>

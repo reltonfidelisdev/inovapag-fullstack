@@ -70,8 +70,8 @@ class ClienteController extends Controller
         $cliente->sexo = $request->input('sexo');
         $cliente->grauEscolaridade = $request->input('grauEscolaridade');
         try {
-            $insert = $cliente->save();
-            return redirect('/cliente/show/' . $cliente->uid, 201);
+            $cliente->save();
+            return redirect('/cliente/show/' . $cliente->uid);
         } catch (\Exception $e) {
             $e->getMessage();
         }
@@ -82,6 +82,7 @@ class ClienteController extends Controller
         $clienteExiste = DB::table('clientes')
             ->leftJoin('enderecos', 'enderecos.cliente_id', '=', 'clientes.id')
             ->leftJoin('telefones', 'telefones.cliente_id', '=', 'clientes.id')
+            ->leftJoin('emails', 'emails.cliente_id', '=', 'clientes.id')
             ->where('clientes.uid', $uid)->get();
         //dd($clienteExiste);
         // Cliente::where('uid', $uid)->get();

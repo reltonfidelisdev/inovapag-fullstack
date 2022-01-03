@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Telefone;
+use App\Models\Email;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class TelefoneController extends Controller
+class EmailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,10 +27,8 @@ class TelefoneController extends Controller
     public function create($uid)
     {
         $cliente = DB::table('clientes')
-            ->where('uid', $uid)
-            ->get();
-        //dd($cliente);
-        return view('telefone.create')->with('cliente', $cliente);
+            ->where('uid', $uid)->get();
+        return view('email.create')->with('cliente', $cliente);
     }
 
     /**
@@ -41,28 +39,22 @@ class TelefoneController extends Controller
      */
     public function store(Request $request)
     {
-        $telefone = new Telefone();
-        $telefone->cliente_id = $request->input('cliente_id');
-        $telefone->celularPrincipal = $request->input('celularPrincipal');
-        $telefone->fixoProprio = $request->input('fixoProprio');
-        $telefone->fixoRecados = $request->input('fixoRecados');
+        $email = new Email();
+        $email->cliente_id = $request->input('cliente_id');
+        $email->emailPrincipal  = $request->input('emailPrincipal');
+        $email->emailSecundario = $request->input('emailSecundario');
+        //dd($email->getAttributes());
 
         $validate = [
-            'cliente_id' => 'unique:telefones,id|required|min:1',
-            'celularPrincipal' => 'min:15|max:15',
-            'fixoProprio' => 'min:14|max:14',
-            'fixoRecados' => 'min:14|max:14'
+            'emailPrincipal' => 'min:7' // x@yz.io
         ];
         $messages = [
-            'cliente_id' => 'Já existe telefones salvos para este cliente',
-            'celularPrincipal.min' => 'Telefone Principal inválido! Siga o padrão (11) 98765-4321',
-            'fixoProprio.min' => 'Telefone Fixo Próprio inválido! Siga o padrão (11) 4321-0123',
-            'fixoRecados.min' => 'Telefone Fixo de Recados inválido! Siga o padrão (11) 4321-0123'
+            'emailPrincipal' => 'O Email Principal é obrigatório e deve ter no mínio 7 caracteres.',
         ];
         $request->validate($validate, $messages);
 
         try {
-            $telefone->save();
+            $email->save();
             return redirect('/cliente/show/' . $request->uid);
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

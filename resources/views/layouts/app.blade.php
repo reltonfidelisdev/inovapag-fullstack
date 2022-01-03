@@ -41,11 +41,8 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><a class="dropdown-item" href="{{ route('cliente.create') }}">{{ __('Cadastrar Novo') }}</a></li>
                                 <li><a class="dropdown-item" href="{{ route('cliente.list') }}">{{ __('Listar Todos') }}</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </div>
-
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->

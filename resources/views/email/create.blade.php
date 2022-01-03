@@ -20,28 +20,25 @@
                                     <h4 class="card-title">Informe os telefones de {{ $dadosCliente->nomeCompleto }}</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form action="/telefone/store/" class="form-group" method="post">
+                                    <form action="/email/store/" class="form-group" method="post">
                                         @csrf
                                         <input id="idClienteTelefone" value="{{ $dadosCliente->id }}" name="cliente_id" type="hidden">
                                         <input id="tkClienteTelefone" value="{{ $dadosCliente->uid }}" name="uid" type="hidden">
+                                        <input id="idClienteEmail" name="idCliente" hidden type="text">
                                         <div class="modal-body">
                                           <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-phone"></i></span>
-                                            <input required name="celularPrincipal" maxlength="11" type="text" class="form-control sp_celphones" placeholder="Celular Principal">
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-check"></i></span>
+                                            <input required name="emailPrincipal" maxlength="200" type="text" class="form-control" placeholder="Email Principal">
                                           </div>
                                           <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-plus"></i></span>
-                                            <input required name="fixoProprio" maxlength="11" type="text" class="form-control phone" placeholder="Fixo Próprio">
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-plus"></i></span>
+                                            <input required name="emailSecundario" maxlength="200" type="text" class="form-control" placeholder="Email secundário">
                                           </div>
-                                          <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-forward"></i></span>
-                                            <input required name="fixoRecados" maxlength="11" type="text" class="form-control phone" placeholder="Fixo Recados">
-                                          </div>
-                                          <p>É possível cadastrar apenas 3 números por cliente</p>
+                                          <p>É possível cadastrar apenas 2 emails por cliente</p>
 
                                         </div>
                                         <div class="modal-footer">
-                                          <button data-bs-target="#my-modal" type="submit" class="btn btn-success"><i class="bi bi-check"></i> Salvar</button>
+                                          <button type="submit" class="btn btn-success"><i class="bi bi-check"></i> Salvar</button>
                                         </div>
                                       </form>
                                 </div>
