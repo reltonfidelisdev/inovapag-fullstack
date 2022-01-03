@@ -22,15 +22,10 @@
                                     <p>CPF: {{ $newCliente->cpf }}</p>
                                     <hr>
                                     <div class="mb-3 mt-2">
+                                        <a class="btn btn-success float-end" href="{{ "/cliente/show/" . $newCliente->uid }}"><i class="bi bi-link"></i> Acessar Perfil</a>
                                     </div>
                                 </div>
                                 <div class="card-footer mf-5">
-                                    <input type="hidden" name="perguntaId" value="<%= arrayCliente.id %>">
-                                    <h3>Adicionar informações do cliente:</h3>
-                                    <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalLoginTelefone" ><i class="bi bi-telephone"></i> Telefone</a>
-                                    <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalEndereco"><i class="bi bi-geo-alt"></i> Endereço</a>
-                                    <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalEmailCliente"><i class="bi bi-mailbox"></i> Email</a>
-                                    <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalContaBancaria"><i class="bi bi-bank"></i> Conta Bancária</a>
 
                                 </div>
 
