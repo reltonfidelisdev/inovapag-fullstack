@@ -12,8 +12,9 @@
                     @endforeach
                 @endif
                 @if($cliente)
-                    <div class="card" id="formulario-pergunta">
-                        <form action="/responder" method="POST">
+                    <div class="card" id="form-endereco">
+                        <form action="/eneco/create/" method="POST">
+                            <input type="hidden" name="">
                         @foreach($cliente as $newCliente)
                             <div class="card-header">
                                 <h4 class="card-title">{{ $newCliente->nomeCompleto }}</h4>
@@ -22,34 +23,31 @@
                                 <p>CPF: {{ $newCliente->cpf }}</p>
                                 <hr>
                                 <div class="mb-3 mt-2">
+                                    @if ( $newCliente->logradouro !== null )
+                                    <p><b>Endereço:</b> {{ $newCliente->logradouro }},{{ $newCliente->numero }}, {{ $newCliente->cep }},
+                                        {{ $newCliente->bairro }}, {{ $newCliente->cidade }} / {{ $newCliente->estado }}
+                                    </p>
+                                    <hr>
+                                    <p>
+                                        <b>Complemento:</b> {{ $newCliente->complemento }}
+                                    </p>
+                                    <hr>
+                                    <p>
+                                        <b>Ponto de Referência:</b> {{ $newCliente->pontoReferencia }}
+                                    </p>
+                                    @endif
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <input type="hidden" name="perguntaId" value="<%= arrayCliente.id %>">
-                                <h3>Adicionar informações do cliente:</h3>
-                                <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalLoginTelefone" ><i class="bi bi-telephone"></i> Telefone</a>
-                                <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalEndereco"><i class="bi bi-geo-alt"></i> Endereço</a>
-                                <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalEmailCliente"><i class="bi bi-mailbox"></i> Email</a>
-                                <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalContaBancaria"><i class="bi bi-bank"></i> Conta Bancária</a>
-                                <button type="submit" class="btn btn-primary float-end">Preencher Resposta</button>
-                                <hr>
-                                <span>Voce precisa informar chave abaixo para alterar um cadastro</span>
-                                <hr>
-                                <p></p>
-                                <button type="button" class="btn btn-primary" id="liveToastBtn">Mostrar chave única do cliente</button>
+                                <p>Adicionar informações do cliente:</p>
+                                @if ($newCliente->logradouro == null)
+                                <a class="btn btn-success" href=" {{ "/endereco/create/" . $newCliente->uid }}"><i class="bi bi-map"></i> Endereço</a>
+                                @endif
+                                <a class="btn btn-success" href=" {{ "/endereco/create/" . $newCliente->uid }}"><i class="bi bi-telephone"></i> Telefones</a>
+                                <a class="btn btn-success" href=" {{ "/endereco/create/" . $newCliente->uid }}"><i class="bi bi-map"></i> Emails</a>
+                                <a class="btn btn-success" href=" {{ "/endereco/create/" . $newCliente->uid }}"><i class="bi bi-map"></i> Dados Bancários</a>
 
-                                <div class="position-fixed bottom-5 end-0 p-3" style="z-index: 11">
-                                    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                                        <div class="toast-header">
-                                            <strong class="me-auto">Copie Rapidamente o código</strong>
-                                            <small><a href="#">O que é isso?</a></small>
-                                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                                        </div>
-                                        <div class="toast-body">
-                                            {{ $newCliente->nomeCompleto }}
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                             @endforeach
                         </form>

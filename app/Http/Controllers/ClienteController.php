@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
-use http\Client;
 use Illuminate\Http\Request;
 use Ramsey\Uuid\Uuid;
+use Illuminate\Support\Facades\DB;
 
 class ClienteController extends Controller
 {
@@ -21,7 +21,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $listClientes = Cliente::all();
+        $listClientes = Cliente::orderBy('id', 'DESC')->get();
+        //dd($listClientes);
         return view('cliente.list')->with('cliente', $listClientes);
     }
 
@@ -45,7 +46,7 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $cliente = new Cliente();
-        $validate =[
+        $validate = [
             'nomeCompleto' => 'required|min:3|max:150',
             'cpf' => 'unique:clientes,cpf',
             'rg' => 'min:7|max:15'
@@ -71,20 +72,19 @@ class ClienteController extends Controller
         try {
             $insert = $cliente->save();
             return redirect('/cliente/show/' . $cliente->uid, 201);
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             $e->getMessage();
         }
-
     }
 
     public function show(Request $request, $uid)
     {
-        $clienteExiste = Cliente::where('uid', $uid)->get();
-        if ($clienteExiste){
-            return view('cliente.show')->with('cliente', $clienteExiste);
-        }else{
-            redirect('/nofound', 404);
-        }
+        $clienteExiste = DB::table('clientes')
+            ->leftJoin('enderecos', 'cliente_id', '=', 'clientes.id')
+            ->where('clientes.uid', $uid)->get();
+        //dd($clienteExiste);
+        // Cliente::where('uid', $uid)->get();
+        return view('cliente.show')->with('cliente', $clienteExiste);
     }
 
     /**

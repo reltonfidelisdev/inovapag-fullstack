@@ -22,5 +22,4 @@ class Cliente extends Model
     /**
      * @var mixed|string
      */
-
 }
