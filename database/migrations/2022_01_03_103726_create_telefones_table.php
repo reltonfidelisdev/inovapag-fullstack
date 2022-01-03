@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEnderecoTable extends Migration
+class CreateTelefonesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,12 @@ class CreateEnderecoTable extends Migration
      */
     public function up()
     {
-        Schema::create('enderecos', function (Blueprint $table) {
+        Schema::create('telefones', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('cliente_id');
-            $table->string('estado', 2);
-            $table->string('cidade', 60);
-            $table->string('bairro', 60);
-            $table->string('logradouro', 150);
-            $table->string('complemento', 150);
-            $table->string('numero', 10); // 999.999-AZ
-            $table->string('cep', 9); // 53110-080
-            $table->string('pontoReferencia', 150);
+            $table->string('celularPrincipal', 15); //(81) 99651-0559
+            $table->string('fixoProprio', 14); // (81) 3456-7890
+            $table->string('fixoRecados', 14);
             $table->timestamps();
 
             //constraints
@@ -39,10 +34,10 @@ class CreateEnderecoTable extends Migration
      */
     public function down()
     {
-        Schema::table('enderecos', function (Blueprint $table) {
-            $table->dropForeign('endereco_clientes_id_foreign');
+        Schema::table('telefones', function (Blueprint $table) {
+            $table->dropForeign('telefone_clientes_id_foreign');
             Schema::dropColumn('cliente_id');
         });
-        Schema::dropIfExists('enderecos');
+        Schema::dropIfExists('telefones');
     }
 }

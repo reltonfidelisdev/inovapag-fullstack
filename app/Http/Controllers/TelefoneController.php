@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Telefone;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Endereco;
-use Exception;
 
-class EnderecoController extends Controller
+class TelefoneController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +16,11 @@ class EnderecoController extends Controller
      */
     public function index()
     {
-        return 'Display a listing of the resource.';
+        //
     }
 
     /**
-     * ''''''''Show the form for creating a new resource.''''''''
+     * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -30,7 +30,7 @@ class EnderecoController extends Controller
             ->where('uid', $uid)
             ->get();
         //dd($cliente);
-        return view('endereco.create')->with('cliente', $cliente);
+        return view('telefone.create')->with('cliente', $cliente);
     }
 
     /**
@@ -41,24 +41,14 @@ class EnderecoController extends Controller
      */
     public function store(Request $request)
     {
-        $cliente = DB::table('clientes')
-            ->where('id', $request->input('cliente_id'))->get();
-
-
-        //dd($request->all());
-        $endereco = new Endereco();
-        $endereco->cliente_id = $request->input('cliente_id');
-        $endereco->estado = $request->input('estado');
-        $endereco->cidade = $request->input('cidade');
-        $endereco->bairro = $request->input('bairro');
-        $endereco->logradouro = $request->input('logradouro');
-        $endereco->complemento = $request->input('complemento');
-        $endereco->numero = $request->input('numero');
-        $endereco->cep = $request->input('cep');
-        $endereco->pontoReferencia = $request->input('pontoReferencia');
+        $telefone = new Telefone();
+        $telefone->cliente_id = $request->input('cliente_id');
+        $telefone->celularPrincipal = $request->input('celularPrincipal');
+        $telefone->fixoProprio = $request->input('fixoProprio');
+        $telefone->fixoRecados = $request->input('fixoRecados');
 
         try {
-            $endereco->save();
+            $telefone->save();
             return redirect('/cliente/show/' . $request->uid);
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

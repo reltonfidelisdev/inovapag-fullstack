@@ -34,3 +34,7 @@ Route::get('/cliente/show/{uid}', [\App\Http\Controllers\ClienteController::clas
 //Endereco Rotas
 Route::get('/endereco/create/{uid?}', [\App\Http\Controllers\EnderecoController::class, 'create'])->name('endereco.create');
 Route::post('/endereco/store/{uid?}', [\App\Http\Controllers\EnderecoController::class, 'store'])->name('endereco.store');
+
+//Telefones Rotas
+Route::get('/telefone/create/{uid?}', [\App\Http\Controllers\TelefoneController::class, 'create'])->name('telefone.create');
+Route::post('/telefone/store/{uid?}', [\App\Http\Controllers\TelefoneController::class, 'store'])->name('telefone.store');
