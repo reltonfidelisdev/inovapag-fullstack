@@ -12,17 +12,17 @@
                     @endforeach
                 @endif
                 @if($cliente)
-                        @foreach($cliente as $newCliente)
+                        @foreach($cliente as $dadosCliente)
                         <div class="card mt-3" id="formulario-pergunta">
 
                                 <div class="card-header">
-                                    <h4 class="card-title">{{ $newCliente->nomeCompleto }}</h4>
+                                    <h4 class="card-title">{{ $dadosCliente->nomeCompleto }}</h4>
                                 </div>
                                 <div class="card-body">
-                                    <p>CPF: {{ $newCliente->cpf }}</p>
+                                    <p>CPF: {{ $dadosCliente->cpf }}</p>
                                     <hr>
                                     <div class="mb-3 mt-2">
-                                        <a class="btn btn-success float-end" href="{{ "/cliente/show/" . $newCliente->uid }}"><i class="bi bi-link"></i> Acessar Perfil</a>
+                                        <a class="btn btn-success float-end" href="{{ "/cliente/show/" . $dadosCliente->uid }}"><i class="bi bi-link"></i> Acessar Perfil</a>
                                     </div>
                                 </div>
                                 <div class="card-footer mf-5">
