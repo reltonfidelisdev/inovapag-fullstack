@@ -49,6 +49,15 @@
                                         <b>Email Secundário:</b> {{ $dadosCliente->emailSecundario }}
                                     </p>
                                     @endif
+                                    @if ( $dadosCliente->codigoBanco !== null )
+                                    <hr>
+                                    <p><b>Instituição:</b>
+                                        {{ $dadosCliente->nomeBanco }}
+                                        <b>Tipo de Conta:</b> {{ $dadosCliente->tipoConta }}
+                                        <b>Agencia:</b> {{ $dadosCliente->agenciaComDigito }}
+                                        <b>Conta:</b> {{ $dadosCliente->contaComDigito }}
+                                    </p>
+                                    @endif
                                 </div>
                             </div>
                             <div class="card-footer">
@@ -62,9 +71,9 @@
                                 @if ($dadosCliente->emailPrincipal == null)
                                 <a class="btn btn-success" href=" {{ "/email/create/" . $dadosCliente->uid }}"><i class="bi bi-map"></i> Emails</a>
                                 @endif
-
-                                <a class="btn btn-success" href=" {{ "/endereco/create/" . $dadosCliente->uid }}"><i class="bi bi-map"></i> Dados Bancários</a>
-
+                                @if ($dadosCliente->codigoBanco == null)
+                                <a class="btn btn-success" href=" {{ "/dados-bancarios/create/" . $dadosCliente->uid }}"><i class="bi bi-map"></i> Dados Bancários</a>
+                                @endif
 
                             </div>
                             @endforeach
