@@ -83,6 +83,7 @@ class ClienteController extends Controller
             ->leftJoin('enderecos', 'enderecos.cliente_id', '=', 'clientes.id')
             ->leftJoin('telefones', 'telefones.cliente_id', '=', 'clientes.id')
             ->leftJoin('emails', 'emails.cliente_id', '=', 'clientes.id')
+            ->leftJoin('dados_bancarios', 'dados_bancarios.cliente_id', '=', 'clientes.id')
             ->where('clientes.uid', $uid)->get();
         //dd($clienteExiste);
         // Cliente::where('uid', $uid)->get();

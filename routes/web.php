@@ -42,3 +42,7 @@ Route::post('/telefone/store/{uid?}', [\App\Http\Controllers\TelefoneController:
 //Emails Rotas
 Route::get('/email/create/{uid?}', [\App\Http\Controllers\EmailController::class, 'create'])->name('email.create');
 Route::post('/email/store/{uid?}', [\App\Http\Controllers\EmailController::class, 'store'])->name('email.store');
+
+//Emails Rotas
+Route::get('/dados-bancarios/create/{uid?}', [\App\Http\Controllers\DadosBancariosController::class, 'create'])->name('dados-bancarios.create');
+Route::post('/dados-bancarios/store/{uid?}', [\App\Http\Controllers\DadosBancariosController::class, 'store'])->name('dados-bancarios.store');
