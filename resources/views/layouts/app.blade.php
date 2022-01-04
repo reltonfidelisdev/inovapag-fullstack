@@ -19,13 +19,21 @@
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        body{
+            background: rgb(48,48,55);
+            background: linear-gradient(30deg, rgba(48,48,55,1) 23%, rgba(30,179,116,1) 67%, rgba(27,161,16,0.928991579541973) 100%);
+            background-repeat: repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    .:: {{ config('app.name', 'Laravel') }} Cred ::.
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -35,15 +43,17 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <div class="dropdown">
-                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Cadastro de Clientes
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                              </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
                                 <li><a class="dropdown-item" href="{{ route('cliente.create') }}">{{ __('Cadastrar Novo') }}</a></li>
                                 <li><a class="dropdown-item" href="{{ route('cliente.list') }}">{{ __('Listar Todos') }}</a></li>
                             </ul>
                         </div>
                     </ul>
+
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -147,5 +157,35 @@
         $('.sp_celphones').mask(SPMaskBehavior, spOptions);
 
     </script>
+
+
+    <div class="container">
+        <div class="footer text-center" style="height: 300px; width: 100%; color:ivory; padding-top:20px; padding-bottom: 20%">
+                <h5>.:: Inova Cred Módulo Operador ::.</h5>
+                <hr>
+                <p>As informações contidas neste softwate<br>
+                são confidenciais e não podem ser compartilhadas por nenhum meio.<br>
+                Para saber mais acesse nossa<a class="btn btn-link">Política de Uso de Dados</a></p>
+        </div>
+        <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+            <div class="container">
+              <a class="navbar-brand" href="#">v1.0.1.beta</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">Chamados</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Web Mail</a>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </div>
 </body>
 </html>

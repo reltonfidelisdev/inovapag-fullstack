@@ -14,10 +14,9 @@
                 @if($cliente)
                     <div class="card" id="form-endereco">
                         <form action="/eneco/create/" method="POST">
-                            <input type="hidden" name="">
                         @foreach($cliente as $dadosCliente)
                             <div class="card-header">
-                                <h4 class="card-title">{{ $dadosCliente->nomeCompleto }}</h4>
+                                <h4 class="card-title">Perfil de {{ $dadosCliente->nomeCompleto }}</h4>
                             </div>
                             <div class="card-body">
                                 <p>CPF: {{ $dadosCliente->cpf }}</p>
@@ -28,7 +27,9 @@
                                         {{ $dadosCliente->logradouro }},{{ $dadosCliente->numero }}, {{ $dadosCliente->cep }},
                                         {{ $dadosCliente->bairro }}, {{ $dadosCliente->cidade }} / {{ $dadosCliente->estado }}
                                     </p>
-                                    <hr>
+
+
+
                                     <p><b>Complemento:</b> {{ $dadosCliente->complemento }}</p>
                                     <hr>
                                     <p><b>Ponto de Referência:</b> {{ $dadosCliente->pontoReferencia }}</p>
@@ -61,18 +62,30 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <p>Adicionar informações do cliente:</p>
+                                <div class="d-grid gap-2">
                                 @if ($dadosCliente->logradouro == null)
-                                <a class="btn btn-success" href=" {{ "/endereco/create/" . $dadosCliente->uid }}"><i class="bi bi-map"></i> Endereço</a>
+                                <a class="btn btn-success mt-1 mb-1" href=" {{ "/endereco/create/" . $dadosCliente->uid }}"><i class="bi bi-map"></i> Cadastrar Endereço</a>
                                 @endif
                                 @if ($dadosCliente->celularPrincipal == null)
-                                <a class="btn btn-success" href=" {{ "/telefone/create/" . $dadosCliente->uid }}"><i class="bi bi-telephone"></i> Telefones</a>
+                                <a class="btn btn-success mt-1 mb-1" href=" {{ "/telefone/create/" . $dadosCliente->uid }}"><i class="bi bi-telephone"></i> Cadastrar Telefones</a>
                                 @endif
                                 @if ($dadosCliente->emailPrincipal == null)
-                                <a class="btn btn-success" href=" {{ "/email/create/" . $dadosCliente->uid }}"><i class="bi bi-map"></i> Emails</a>
+                                <a class="btn btn-success mt-1 mb-1" href=" {{ "/email/create/" . $dadosCliente->uid }}"><i class="bi bi-map"></i> Cadastrar Emails</a>
                                 @endif
                                 @if ($dadosCliente->codigoBanco == null)
-                                <a class="btn btn-success" href=" {{ "/dados-bancarios/create/" . $dadosCliente->uid }}"><i class="bi bi-map"></i> Dados Bancários</a>
+                                <a class="btn btn-success mt-1 mb-1" href=" {{ "/dados-bancarios/create/" . $dadosCliente->uid }}"><i class="bi bi-map"></i> Cadastrar Dados Bancários</a>
+                                @endif
+                                </div>
+
+                                @if (
+                                $dadosCliente->codigoBanco !== null &&
+                                $dadosCliente->emailPrincipal !== null &&
+                                $dadosCliente->celularPrincipal !== null &&
+                                $dadosCliente->logradouro !== null
+                                )
+                                <div class="d-grid gap-2 mt-1 mb-1">
+                                    <a class="btn btn-success" href=" {{ "/proposta/create/" . $dadosCliente->uid }}"><i class="bi bi-coin"></i> Preencher Proposta</a>
+                                </div>
                                 @endif
 
                             </div>
@@ -82,5 +95,6 @@
                 @endif()
             </div>
         </div>
+
     </div>
 @endsection

@@ -30,18 +30,11 @@
                                                   <select required class="form-select" name="codigoBanco" aria-label="Selecione a Instituição Bancária">
                                                     <option value="">Selecione o Banco</option>
                                                     <option value="237 - Banco Bradesco">237 - Banco Bradesco</option>
-                                                    <option value="745">745 - Banco Citibank</option>
-                                                    <option value="748">748 - Banco Sicredi</option>
-                                                    <option value="069">069 - Banco Crefisa</option>
-                                                    <option value="001">001 - Banco do Brasil</option>
-                                                    <option value="212">212 - Banco Original</option>
-                                                    <option value="453">453 - Banco Rural</option>
-                                                    <option value="422">422 - Banco Safra</option>
-                                                    <option value="033">033 - Banco Santander</option>
-                                                    <option value="655">655 - Banco Votorantim</option>
-                                                    <option value="104">104 - Caixa Econômica Federal</option>
-                                                    <option value="104">399 - HSBC Bank Brasil</option>
-                                                    <option value="104">341 - Itaú Unibanco</option>
+                                                    <option value="745 - Banco Citibank">745 - Banco Citibank</option>
+                                                    <option value="001 - Banco do Brasil">001 - Banco do Brasil</option>
+                                                    <option value="033 - Banco Santander">033 - Banco Santander</option>
+                                                    <option value="104 - Caixa Econômica Federal">104 - Caixa Econômica Federal</option>
+                                                    <option value="341 - Itaú Unibanco">341 - Itaú Unibanco</option>
                                                   </select>
                                               </div>
                                               <div class="input-group mb-3">
