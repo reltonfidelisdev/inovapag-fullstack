@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 @if($errors->any())
                     @foreach( $errors->all() as $erro)
                         <div class="alert alert-danger">
@@ -22,8 +22,8 @@
                                 <div class="card-body">
                                     <form action="/telefone/store/" class="form-group" method="post">
                                         @csrf
-                                        <input id="idClienteTelefone" value="{{ $dadosCliente->id }}" name="cliente_id" type="hidden">
-                                        <input id="tkClienteTelefone" value="{{ $dadosCliente->uid }}" name="uid" type="hidden">
+                                        <input id="idCliente" value="{{ $dadosCliente->id }}" name="cliente_id" type="hidden">
+                                        <input id="uidCliente" value="{{ $dadosCliente->uid }}" name="uid" type="hidden">
                                         <div class="modal-body">
                                           <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-phone"></i></span>

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 @if($errors->any())
                     @foreach( $errors->all() as $erro)
                         <div class="alert alert-danger">
@@ -21,6 +21,7 @@
                                 @csrf
                                 <div class="col-md-12">
                                     <h1>Dados Pessosais</h1>
+                                    <hr>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputCPF" class="form-label">CPF do Cliente</label>

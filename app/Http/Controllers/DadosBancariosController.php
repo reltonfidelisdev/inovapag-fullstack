@@ -54,7 +54,7 @@ class DadosBancariosController extends Controller
         //dd($dadosBancarios->getAttributes());
         $validate = [
             'nomeBanco' => 'min:3|max:50',
-            'tipoConta' => 'min:1|max:1',
+            'tipoConta' => 'min:5',
             'agenciaComDigito' => 'min:3|max:15',
             'contaComDigito' => 'min:3|max:15'
         ];
@@ -62,7 +62,6 @@ class DadosBancariosController extends Controller
             'nomeBanco.min' => 'O Nome do Banco deve ter no mínimo 3 caracteres',
             'nomeBanco.max' => 'O Nome do Banco deve ter no máximo 50 caracteres',
             'tipoConta.min' => 'O Tipo de Conta deve ter no mínimo 1 caractere',
-            'tipoConta.max' => 'O Tipo de Conta deve ter no máximo 1 caractere',
             'agenciaComDigito.min' => 'A Agência deve ter no mínimo 3 caracteres',
             'agenciaComDigito.max' => 'A Agência deve ter no máximo 15 caracteres',
             'contaComDigito.min' => 'A Conta deve ter no mínimo 3 caracteres',

@@ -18,7 +18,7 @@ class CreateDadosBancariosTable extends Migration
             $table->unsignedBigInteger('cliente_id');
             $table->integer('codigoBanco');
             $table->string('nomeBanco', 50);
-            $table->string('tipoConta', 50);
+            $table->string('tipoConta', 100);
             $table->string('agenciaComDigito', 15);
             $table->string('contaComDigito', 15);
             $table->timestamps();
