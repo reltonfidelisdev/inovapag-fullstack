@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PDFController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +43,16 @@ Route::post('/telefone/store/{uid?}', [\App\Http\Controllers\TelefoneController:
 Route::get('/email/create/{uid?}', [\App\Http\Controllers\EmailController::class, 'create'])->name('email.create');
 Route::post('/email/store/{uid?}', [\App\Http\Controllers\EmailController::class, 'store'])->name('email.store');
 
-//Emails Rotas
+//Dados Bancarios Rotas
 Route::get('/dados-bancarios/create/{uid?}', [\App\Http\Controllers\DadosBancariosController::class, 'create'])->name('dados-bancarios.create');
 Route::post('/dados-bancarios/store/{uid?}', [\App\Http\Controllers\DadosBancariosController::class, 'store'])->name('dados-bancarios.store');
+
+//Propostas Rotas
+Route::get('/proposta/list', [\App\Http\Controllers\PropostaController::class, 'index'])->name('proposta.list');
+Route::post('/proposta/show/{uid}/{proposta_id}', [\App\Http\Controllers\PropostaController::class, 'show'])->name('proposta.show');
+Route::get('/proposta/create/{uid?}', [\App\Http\Controllers\PropostaController::class, 'create'])->name('proposta.create');
+Route::post('/proposta/store/{uid?}', [\App\Http\Controllers\PropostaController::class, 'store'])->name('proposta.store');
+Route::get('/proposta/calculo/', [\App\Http\Controllers\PropostaController::class, 'calculo'])->name('proposta.calculo');
+Route::post('/proposta/calculadora/', [\App\Http\Controllers\PropostaController::class, 'calculadora'])->name('proposta.calculadora');
+//Gera PDF Emprestimo Cartão de Crédito
+Route::post('/proposta/pdf/imprimir-proposta-cc/', [\App\Http\Controllers\PDFController::class, 'imprimirpropostacc'])->name('proposta.propostacc');

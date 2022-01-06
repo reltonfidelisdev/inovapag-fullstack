@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 @if($errors->any())
                     @foreach( $errors->all() as $erro)
                         <div class="alert alert-danger">
@@ -19,7 +19,11 @@
                                     <h4 class="card-title">{{ $dadosCliente->nomeCompleto }}</h4>
                                 </div>
                                 <div class="card-body">
-                                    <p>CPF: {{ $dadosCliente->cpf }}</p>
+                                    @php
+                                    $ultimos6caracteresCpf = substr($dadosCliente->cpf, -6);
+                                    $ultimos6caracterespf = '***.***.' . $ultimos6caracteresCpf;
+                                    @endphp
+                                    <input type="text" value="CPF: {{ $ultimos6caracterespf }}" class="form-control" disabled>
                                     <hr>
                                     <div class="mb-3 mt-2">
                                         <a class="btn btn-success float-end" href="{{ "/cliente/show/" . $dadosCliente->uid }}"><i class="bi bi-link"></i> Acessar Perfil</a>

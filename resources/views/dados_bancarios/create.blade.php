@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 @if($errors->any())
                     @foreach( $errors->all() as $erro)
                         <div class="alert alert-danger">
@@ -41,18 +41,18 @@
                                                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-piggy-bank"></i></span>
                                                 <select required class="form-select" name="tipoConta" aria-label="Default select example">
                                                   <option></option>
-                                                  <option value="1">Conta Corrente</option>
-                                                  <option value="2">Conta Salário</option>
-                                                  <option value="3">Conta Poupança</option>
-                                                  <option value="4">Conta Conjunta</option>
-                                                  <option value="5">Conta Empresa - PJ</option>
+                                                  <option value="Conta Corrente">Conta Corrente</option>
+                                                  <option value="Conta Salário">Conta Salário</option>
+                                                  <option value="Conta Poupança">Conta Poupança</option>
+                                                  <option value="Conta Conjunta">Conta Conjunta</option>
+                                                  <option value="Conta Empresa - PJ">Conta Empresa - PJ</option>
                                                 </select>
                                             </div>
                                               <div class="input-group mb-3">
                                                 <span class="input-group-text">Agência</span>
-                                                <input type="text" name="contaComDigito" class="form-control" placeholder="0987-1" aria-label="0987-1">
+                                                <input type="text" name="agenciaComDigito" class="form-control" placeholder="0987-1" aria-label="0987-1">
                                                 <span class="input-group-text">Conta</span>
-                                                <input type="text" name="agenciaComDigito" class="form-control" placeholder="000012345-9" aria-label="000012345-9">
+                                                <input type="text" name="contaComDigito" class="form-control" placeholder="000012345-9" aria-label="000012345-9">
                                               </div>
 
 

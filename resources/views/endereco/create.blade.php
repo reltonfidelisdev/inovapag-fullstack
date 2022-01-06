@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 @if($errors->any())
                     @foreach( $errors->all() as $erro)
                         <div class="alert alert-danger">
@@ -46,12 +46,12 @@
                                                 </div>
                                                 <div class="input-group mb-3">
                                                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo"></i></span>
-                                                    <input maxlength="100" name="cidade" type="text" class="form-control" required placeholder="Informe o Bairro" aria-label="Informe o Bairro" aria-describedby="client-city">
+                                                    <input maxlength="100" name="bairro" type="text" class="form-control" required placeholder="Informe o Bairro" aria-label="Informe o Bairro" aria-describedby="client-city">
                                                 </div>
 
                                                 <div class="input-group mb-3">
                                                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-map"></i></span>
-                                                    <input maxlength="100" name="bairro" type="text" class="form-control" required placeholder="Informe a Cidade" aria-label="Informe a Cidade" aria-describedby="client-city">
+                                                    <input maxlength="100" name="cidade" type="text" class="form-control" required placeholder="Informe a Cidade" aria-label="Informe a Cidade" aria-describedby="client-city">
                                                 </div>
 
                                                 <div class="input-group mb-3">

@@ -44,7 +44,7 @@
                     <div class="row justify-content-center">
                         <div class="col-md-8">
                             <div class="alert alert-primary">
-                                this is an alert-check it out!
+                                <a href="/pdf">Acessar pdf</a>
                             </div>
                         </div>
                     </div>

@@ -51,9 +51,15 @@
                                 <li><a class="dropdown-item" href="{{ route('cliente.list') }}">{{ __('Listar Todos') }}</a></li>
                             </ul>
                         </div>
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Propostas
+                              </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="{{ route('proposta.list') }}">{{ __('Listar Todas') }}</a></li>
+                            </ul>
+                        </div>
                     </ul>
-
-
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">

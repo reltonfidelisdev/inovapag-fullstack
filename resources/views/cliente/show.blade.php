@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 @if($errors->any())
                     @foreach( $errors->all() as $erro)
                         <div class="alert alert-danger">
@@ -19,46 +19,97 @@
                                 <h4 class="card-title">Perfil de {{ $dadosCliente->nomeCompleto }}</h4>
                             </div>
                             <div class="card-body">
-                                <p>CPF: {{ $dadosCliente->cpf }}</p>
-                                <hr>
-                                <div class="mb-3 mt-2">
-                                    @if ( $dadosCliente->logradouro !== null )
-                                    <p><b>Endereço:</b>
-                                        {{ $dadosCliente->logradouro }},{{ $dadosCliente->numero }}, {{ $dadosCliente->cep }},
-                                        {{ $dadosCliente->bairro }}, {{ $dadosCliente->cidade }} / {{ $dadosCliente->estado }}
-                                    </p>
+                                @php
+                                    $ultimos6caracteresCpf = substr($dadosCliente->cpf, -6);
+                                    $ultimos6caracteresCpf = '***.***.' . $ultimos6caracteresCpf;
+                                @endphp
+                                <div class="row">
 
-
-
-                                    <p><b>Complemento:</b> {{ $dadosCliente->complemento }}</p>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Nome Completo </label>
+                                        <input type="text" value="{{ $dadosCliente->nomeCompleto }}" class="form-control" disabled>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">CPF </label>
+                                        <input type="text" value="{{ $ultimos6caracteresCpf }}" class="form-control" disabled>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">RG </label>
+                                        <input type="text" value="{{ $dadosCliente->rg }}"class="form-control" disabled>
+                                    </div>
                                     <hr>
-                                    <p><b>Ponto de Referência:</b> {{ $dadosCliente->pontoReferencia }}</p>
+                                    @if ( $dadosCliente->logradouro !== null )
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Endereço: </label>
+                                        <input type="text" value="{{ $dadosCliente->logradouro }}, Nº {{ $dadosCliente->numero }}, CEP:{{ $dadosCliente->cep }}"class="form-control" disabled>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Bairro: </label>
+                                        <input type="text" value="{{ $dadosCliente->bairro }}"class="form-control" disabled>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Cidade: </label>
+                                        <input type="text" value="{{ $dadosCliente->cidade }} / {{ $dadosCliente->estado }}"class="form-control" disabled>
+                                    </div>
+                                    <hr>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Complemento</label>
+                                        <input type="text" value="{{ $dadosCliente->complemento }}" class="form-control" disabled>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Ponto de Referência</label>
+                                        <input type="text" value="{{ $dadosCliente->pontoReferencia }}" class="form-control" disabled>
+                                    </div>
                                     @endif
 
                                     @if ( $dadosCliente->celularPrincipal !== null )
                                     <hr>
-                                    <p><b>Celular:</b>
-                                        {{ $dadosCliente->celularPrincipal }}
-                                        <b>Fixo:</b> {{ $dadosCliente->fixoProprio }}
-                                        <b>Recados:</b> {{ $dadosCliente->fixoRecados }}
-                                    </p>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Celular</label>
+                                        <input type="text" value="{{ $dadosCliente->celularPrincipal }}" class="form-control" disabled>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Fixo</label>
+                                        <input type="text" value="{{ $dadosCliente->fixoProprio }}" class="form-control" disabled>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Recados:</label>
+                                        <input type="text" value="{{ $dadosCliente->fixoRecados }}" class="form-control" disabled>
+                                    </div>
                                     @endif
                                     @if ( $dadosCliente->emailPrincipal !== null )
                                     <hr>
-                                    <p><b>Email Principal:</b>
-                                        {{ $dadosCliente->emailPrincipal }}
-                                        <b>Email Secundário:</b> {{ $dadosCliente->emailSecundario }}
-                                    </p>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Email Principal </label>
+                                        <input type="text" value="{{ $dadosCliente->emailPrincipal }}" class="form-control" disabled>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Email Secundário</label>
+                                        <input type="text" value="{{ $dadosCliente->emailSecundario }}" class="form-control" disabled>
+                                    </div>
                                     @endif
                                     @if ( $dadosCliente->codigoBanco !== null )
                                     <hr>
-                                    <p><b>Instituição:</b>
-                                        {{ $dadosCliente->nomeBanco }}
-                                        <b>Tipo de Conta:</b> {{ $dadosCliente->tipoConta }}
-                                        <b>Agencia:</b> {{ $dadosCliente->agenciaComDigito }}
-                                        <b>Conta:</b> {{ $dadosCliente->contaComDigito }}
-                                    </p>
+                                    <div class="col-md-4 mb-4">
+                                        <label class="form-label">Instituição</label>
+                                        <input type="text" value="{{ $dadosCliente->nomeBanco }}" class="form-control" disabled>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Tipo de Conta</label>
+                                        <input type="text" value="{{ $dadosCliente->tipoConta }}" class="form-control" disabled>
+                                    </div>
+                                    <div class="col-md-2 mb-4">
+                                        <label class="form-label">Agência</label>
+                                        <input type="text" value="{{ $dadosCliente->agenciaComDigito }}" class="form-control" disabled>
+                                    </div>
+                                    <div class="col-md-2 mb-3">
+                                        <label class="form-label">Conta:</label>
+                                        <input type="text" value="{{ $dadosCliente->contaComDigito }} " class="form-control" disabled>
+                                    </div>
                                     @endif
+                                </div>
+                                <div class="mb-3 mt-2">
+
                                 </div>
                             </div>
                             <div class="card-footer">
