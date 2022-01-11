@@ -44,7 +44,7 @@
                     <div class="row justify-content-center">
                         <div class="col-md-8">
                             <div class="alert alert-primary">
-                                <a href="/pdf">Acessar pdf</a>
+                                <a href="/pdf">Gerar PDF</a>
                             </div>
                         </div>
                     </div>

@@ -56,6 +56,7 @@
                                 Propostas
                               </a>
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="{{ route('proposta.calculo') }}">{{ __('Calculadora') }}</a></li>
                                 <li><a class="dropdown-item" href="{{ route('proposta.list') }}">{{ __('Listar Todas') }}</a></li>
                             </ul>
                         </div>

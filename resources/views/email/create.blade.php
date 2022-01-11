@@ -17,7 +17,7 @@
                             <div class="card mt-3" id="formulario-pergunta">
 
                                 <div class="card-header">
-                                    <h4 class="card-title">Informe os telefones de {{ $dadosCliente->nomeCompleto }}</h4>
+                                    <h4 class="card-title">Informe os emails de {{ $dadosCliente->nomeCompleto }}</h4>
                                 </div>
                                 <div class="card-body">
                                     <form action="/email/store/" class="form-group" method="post">

@@ -88,6 +88,8 @@ class PropostaController extends Controller
         $proposta = new Proposta();
         $proposta->cliente_id = $clienteId;
         $proposta->dados_bancarios_id = $dadosBancarios->cliente_id;
+        $proposta->atendente_id = 1;
+        $proposta->franquia_id = 1;
         $proposta->valorSolicitado = number_format((float)$valorSolicitado, 2);
         $proposta->taxaJuros = $tabelaDeCalculo;
         $proposta->parcelaMensal = number_format((float)$parcelaMensal, 2);
@@ -165,6 +167,8 @@ class PropostaController extends Controller
             ->join('emails', 'emails.cliente_id', '=', 'clientes.id')
             ->join('dados_bancarios', 'dados_bancarios.cliente_id', '=', 'clientes.id')
             ->join('propostas', 'propostas.cliente_id', '=', 'clientes.id')
+            ->join('franquias', 'franquias.id', '=', 'propostas.franquia_id')
+            ->join('atendentes', 'atendentes.id', '=', 'propostas.atendente_id')
             ->where('propostas.id', $proposta_id)->get();
         //dd($cliente->toArray());
         return view('proposta.show')
