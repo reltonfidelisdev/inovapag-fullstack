@@ -18,6 +18,8 @@ class CreatePropostasTable extends Migration
 
             $table->unsignedBigInteger('cliente_id');
             $table->unsignedBigInteger('dados_bancarios_id');
+            $table->unsignedBigInteger('franquia_id');
+            $table->unsignedBigInteger('atendente_id');
             $table->string('valorSolicitado', 20); // 999.999.99 (true -> só permite valores positivos )
             $table->string('taxaJuros', 20);
             $table->string('parcelaMensal', 20);
@@ -26,9 +28,14 @@ class CreatePropostasTable extends Migration
 
             $table->timestamps();
 
-            //constraints
+            //constraints - clientes
             $table->foreign('cliente_id')->references('id')->on('clientes');
+            //constraints - dados bancarios
             $table->foreign('dados_bancarios_id')->references('id')->on('dados_bancarios');
+            //constraints - franquias
+            $table->foreign('franquia_id')->references('id')->on('franquias');
+            //constraints - atendentes
+            $table->foreign('atendente_id')->references('id')->on('atendentes');
         });
     }
 
