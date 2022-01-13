@@ -16,14 +16,14 @@ class CreateEnderecoTable extends Migration
         Schema::create('enderecos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('cliente_id');
+            $table->string('cep', 9); // 53110-080
+            $table->string('numero', 10); // 999.999-AZ
+            $table->string('logradouro', 150);
             $table->string('estado', 2);
             $table->string('cidade', 60);
             $table->string('bairro', 60);
-            $table->string('logradouro', 150);
-            $table->string('complemento', 150);
-            $table->string('numero', 10); // 999.999-AZ
-            $table->string('cep', 9); // 53110-080
-            $table->string('pontoReferencia', 150);
+            $table->string('complemento', 150)->nullable();
+            $table->string('pontoReferencia', 150)->nullable();
             $table->timestamps();
 
             //constraints
