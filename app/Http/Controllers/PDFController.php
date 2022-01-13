@@ -50,7 +50,7 @@ class PDFController extends Controller
 
         return $pdf->download('proposta-cc.pdf');
 
-        //return view('proposta.gerar_pdf.imprimir-proposta-cc')
-        //->with('proposta', $proposta);
+        // return view('proposta.gerar_pdf.imprimir-proposta-cc')
+        //     ->with('proposta', $proposta);
     }
 }
