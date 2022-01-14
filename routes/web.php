@@ -56,3 +56,10 @@ Route::get('/proposta/calculo/', [\App\Http\Controllers\PropostaController::clas
 Route::post('/proposta/calculadora/', [\App\Http\Controllers\PropostaController::class, 'calculadora'])->name('proposta.calculadora');
 //Gera PDF Emprestimo Cartão de Crédito
 Route::post('/proposta/pdf/imprimir-proposta-cc/', [\App\Http\Controllers\PDFController::class, 'imprimirpropostacc'])->name('proposta.propostacc');
+
+//Documento Proposta Rotas
+Route::get('/documento-proposta/create/{uid}/{proposta_id}', [\App\Http\Controllers\DocumentoPropostaController::class, 'create'])->name('documento.create');
+Route::post('/documento-proposta/store/', [\App\Http\Controllers\DocumentoPropostaController::class, 'store'])->name('documento.store');
+
+
+Route::get('/documento-proposta/list/{uid?}/{proposta_id?}', [\App\Http\Controllers\DocumentoPropostaController::class, 'index'])->name('documento.list');
