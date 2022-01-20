@@ -11,7 +11,6 @@
                         </div>
                     @endforeach
                 @endif
-
                 @if($cliente && $tabelaJuros)
 
                     @foreach($cliente as $dadosCliente)
@@ -94,8 +93,20 @@
                                         <label for="inputTabelaDeCalculo" class="form-label">Base de Calculo</label>
                                         <input type="text" value="{{ $dadosCliente->taxaJuros }}% a.m" class="form-control" disabled>
                                     </div>
-                                    <div class="col-md-12 padding-footer">
-                                        <button type="submit" class="btn btn-success float-end">
+                                    <div class="col-md-4 d-grid gap-2">
+                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i class="bi bi-cloud-upload"></i>
+                                            Anexar Arquivos
+                                          </button>
+                                    </div>
+                                    <div class="col-md-4 d-grid gap-2">
+                                        <a href="{{ route('documento.list')}}/{{ $dadosCliente->uid }}/{{ $proposta_id }} " class="btn btn-primary">
+                                            <i class="bi bi-eye"></i>
+                                            Arquivos Enviados
+                                          </a>
+                                    </div>
+                                    <div class="col-md-4 d-grid gap-2">
+                                        <button type="submit"class="btn btn-success">
                                             <i class="bi bi-printer"></i>
                                             Imprimir Contrato</button>
                                     </div>
@@ -113,6 +124,56 @@
 
 
             </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Anexar arquivos à proposta</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/documento-proposta/store/" class="form-group" method="post" enctype="multipart/form-data">
+                    @csrf
+                        <input id="idCliente" value="{{ $dadosCliente->id }}" name="cliente_id" type="hidden">
+                        <input id="tkCliente" value="{{ $dadosCliente->uid }}" name="uid" type="hidden">
+                        <input id="idProposta" value="{{ $proposta_id }}" name="proposta_id" type="hidden">
+
+                        <div class="modal-body">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-file-earmark-arrow-up"></i></span>
+                                <input required class="form-control" type="file" name="nomeDocumento">
+                            </div>
+                            <div class="mb-3">
+                              <select name="tipoDocumento" class="form-select" required>
+                                <option value="" selected>Selecione o tipo de arquivo...</option>
+                                <option value="RG do Cliente">RG do Cliente</option>
+                                <option value="CPF do Cliente">CPF do Cliente</option>
+                                <option value="Carteira de Habilitação">Carteira de Habilitação</option>
+                                <hr class="dropdown-divider">
+                                <option value="Extrato INSS">Extrato INSS</option>
+                                <option value="Contra Cheque">Contra Cheque</option>
+                                <option value="Comprovante Bancário">Comprovante Bancário</option>
+                                <hr class="dropdown-divider">
+                                <option value="RG do Rogado">RG do Rogado</option>
+                                <option value="CPF do Rogado">CPF do Rogado</option>
+                                <hr class="dropdown-divider">
+                                <option value="Foto do Cliente com Contrato Assinado">Foto do Cliente com Contrato Assinado</option>
+                                <option value="Contrato Assinado">Contrato Assinado</option>
+                            </select>
+                            </div>
+                            <p>Tamanho máximo do arquivo: 5mb <br>
+                            Tipos permitidos: JPG e JPEG</p>
+
+                          </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success"><i class="bi bi-file-earmark-arrow-up"></i> Enviar Documento</button>
+                    </div>
+                    </form>
+            </div>
+        </div>
         </div>
     </div>
 @endsection

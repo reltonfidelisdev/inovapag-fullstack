@@ -11,6 +11,13 @@
                         </div>
                     @endforeach
                 @endif
+
+                @if($errorMessage ?? '')
+                        <div class="alert alert-danger">
+                            {{ $errorMessage}}
+                        </div>
+                @endif
+
                 <div class="card mt-3" id="formulario-pergunta">
 
                         <div class="card-header">
