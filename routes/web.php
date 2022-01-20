@@ -63,3 +63,7 @@ Route::post('/documento-proposta/store/', [\App\Http\Controllers\DocumentoPropos
 
 
 Route::get('/documento-proposta/list/{uid?}/{proposta_id?}', [\App\Http\Controllers\DocumentoPropostaController::class, 'index'])->name('documento.list');
+
+
+// Dashboard
+Route::view('dashboard/home', 'dashboards.home');
