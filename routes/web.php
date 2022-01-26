@@ -21,6 +21,8 @@ Route::get('test', function () {
     return view('test');
 });
 
+Route::view('/home/url', 'proposta.show');
+
 // Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -63,6 +65,10 @@ Route::post('/documento-proposta/store/', [\App\Http\Controllers\DocumentoPropos
 
 
 Route::get('/documento-proposta/list/{uid?}/{proposta_id?}', [\App\Http\Controllers\DocumentoPropostaController::class, 'index'])->name('documento.list');
+
+//Dados Empresariais
+Route::get('/dados-empresariais/create/{uid?}', [\App\Http\Controllers\DadosEmpresariaisController::class, 'create'])->name('dados-empresariais.create');
+Route::post('/dados-empresariais/store', [\App\Http\Controllers\DadosEmpresariaisController::class, 'store'])->name('dados-empresariais.store');
 
 
 // Dashboard
