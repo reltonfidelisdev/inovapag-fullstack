@@ -20,7 +20,7 @@
                                     <h4 class="card-title">Dados Bancários de {{ $dadosCliente->nomeCompleto }}</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form action="/dados-bancarios/store/" class="form-group" method="post">
+                                    <form action="{{ route('dados-bancarios.store') }}" class="form-group" method="post">
                                         @csrf
                                         <input id="idClienteTelefone" value="{{ $dadosCliente->id }}" name="cliente_id" type="hidden">
                                         <input id="tkClienteTelefone" value="{{ $dadosCliente->uid }}" name="uid" type="hidden">
