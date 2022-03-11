@@ -135,7 +135,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="/documento-proposta/store/" class="form-group" method="post" enctype="multipart/form-data">
+                <form action="{{ route('documento.store') }}" class="form-group" method="post" enctype="multipart/form-data">
                     @csrf
                         <input id="idCliente" value="{{ $dadosCliente->id }}" name="cliente_id" type="hidden">
                         <input id="tkCliente" value="{{ $dadosCliente->uid }}" name="uid" type="hidden">
