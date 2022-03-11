@@ -20,7 +20,7 @@
                                 <h4 class="card-title">Salvar Propsta :: {{ $dadosCliente->nomeCompleto }}</h4>
                             </div>
                             <div class="card-body">
-                                <form class="row g-3 mt-3" action="/proposta/pdf/imprimir-proposta-cc/" method="post">
+                                <form class="row g-3 mt-3" action="{{ route('proposta.propostacc') }}" method="post">
                                     @csrf
                                     <input id="idCliente" value="{{ $dadosCliente->id }}" name="cliente_id" type="hidden">
                                     <input id="uidCliente" value="{{ $dadosCliente->uid }}" name="uid" type="hidden">
