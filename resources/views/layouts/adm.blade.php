@@ -173,7 +173,7 @@
         <div class="footer text-center" style="height: 300px; width: 100%; color:ivory; padding-top:20px; padding-bottom: 20%">
                 <h5>.:: Inova Cred Módulo Operador ::.</h5>
                 <hr>
-                <p>As informações contidas neste softwate<br>
+                <p>As informações contidas neste software<br>
                 são confidenciais e não podem ser compartilhadas por nenhum meio.<br>
                 Para saber mais acesse nossa<a class="btn btn-link">Política de Uso de Dados</a></p>
         </div>
