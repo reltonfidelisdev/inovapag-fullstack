@@ -184,10 +184,10 @@
               <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Chamados</a>
+                    <a class="nav-link" target="_blank" aria-current="page" href="https://suporte.permalink.app.br/">Chamados</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Web Mail</a>
+                    <a class="nav-link" target="_blank" href="https://permalink.app.br:8090/rainloop/index.php">Web Mail</a>
                   </li>
 
                 </ul>
