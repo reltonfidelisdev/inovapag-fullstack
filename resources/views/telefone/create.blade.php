@@ -20,7 +20,7 @@
                                     <h4 class="card-title">Informe os telefones de {{ $dadosCliente->nomeCompleto }}</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form action="/telefone/store/" class="form-group" method="post">
+                                    <form action="{{ route('telefone.store') }}" class="form-group" method="post">
                                         @csrf
                                         <input id="idCliente" value="{{ $dadosCliente->id }}" name="cliente_id" type="hidden">
                                         <input id="uidCliente" value="{{ $dadosCliente->uid }}" name="uid" type="hidden">
