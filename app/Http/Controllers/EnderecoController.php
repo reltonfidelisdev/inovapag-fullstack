@@ -45,7 +45,7 @@ class EnderecoController extends Controller
             ->where('id', $request->input('cliente_id'))->get();
 
 
-        dd($request->all());
+        //dd($request->all());
         $endereco = new Endereco();
         $endereco->cliente_id = $request->input('cliente_id');
         $endereco->estado = $request->input('estado');
