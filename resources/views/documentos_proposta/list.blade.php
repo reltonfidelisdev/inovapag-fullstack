@@ -54,7 +54,7 @@
                                     </tr>
 
 
-                                <!-- Modal -->
+                                <!-- Modal Mostra Documento Anexo-->
                                 <div class="modal fade" id="exampleModal{{$documento->idDocumento}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-xl">
                                     <div class="modal-content">
@@ -64,7 +64,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <p class="text-center">
-                                                <img src="http://127.0.0.1:8000/storage/{{$documento->nomeDocumento}}" style="max-width: 100%">
+                                                <img src="{{ Storage::url($documento->nomeDocumento) }}" style="max-width: 100%">
                                             </p>
                                         </div>
                                         <div class="modal-footer">

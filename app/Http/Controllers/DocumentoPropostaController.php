@@ -88,9 +88,9 @@ class DocumentoPropostaController extends Controller
 
                 try {
                     $fileName = $request->file('nomeDocumento')
-                        ->store("documento_proposta/$clienteUID/$propostaId");
-                    //$img = '<img src="' . Storage::url($fileName) . '" style="width:300px">';
-
+                        ->store("public/documento_proposta/$clienteUID/$propostaId");
+                    // $img = '<img src="' . Storage::url($fileName) . '" style="width:300px">';
+                    
                     $documentoProposta = new DocumentoProposta();
                     $documentoProposta->statusDocumento = 'Enviado';
                     $documentoProposta->proposta_id = $propostaId;

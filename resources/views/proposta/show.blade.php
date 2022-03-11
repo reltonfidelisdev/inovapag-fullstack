@@ -94,13 +94,13 @@
                                         <input type="text" value="{{ $dadosCliente->taxaJuros }}% a.m" class="form-control" disabled>
                                     </div>
                                     <div class="col-md-4 d-grid gap-2">
-                                        <button type="button" class="btn btn-dark disabled" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                             <i class="bi bi-cloud-upload"></i>
                                             Anexar Arquivos
                                           </button>
                                     </div>
                                     <div class="col-md-4 d-grid gap-2">
-                                        <a href="{{ route('documento.list')}}/{{ $dadosCliente->uid }}/{{ $proposta_id }} " class="btn btn-primary disabled">
+                                        <a href="{{ route('documento.list')}}/{{ $dadosCliente->uid }}/{{ $proposta_id }} " class="btn btn-primary">
                                             <i class="bi bi-eye"></i>
                                             Arquivos Enviados
                                           </a>
