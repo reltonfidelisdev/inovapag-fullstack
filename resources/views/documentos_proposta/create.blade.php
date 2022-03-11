@@ -17,7 +17,7 @@
                         <h4 class="card-title">Adicionando documentos à proposta {{-- {{ $dadosCliente->nomeCompleto }} --}}</h4>
                     </div>
                     <div class="card-body">
-                        <form action="/documento-proposta/store/" class="form-group" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('documento-proposta.store') }}" class="form-group" method="post" enctype="multipart/form-data">
                             @csrf
                             {{--
                                 <input id="idCliente" value="{{ $dadosCliente->id }}" name="cliente_id" type="hidden">
