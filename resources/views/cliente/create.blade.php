@@ -17,7 +17,7 @@
                             <h4 class="card-title">Cadastro de Clientes</h4>
                         </div>
                         <div class="card-body">
-                            <form class="row g-3 mt-3" action="/cliente/store" method="POST" enctype="application/x-www-form-urlencoded">
+                            <form class="row g-3 mt-3" action="{{ route('cliente.store') }}" method="POST" enctype="application/x-www-form-urlencoded">
                                 @csrf
                                 <div class="col-md-12">
                                     <h1>Dados Pessosais</h1>
