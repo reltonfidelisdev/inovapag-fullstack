@@ -20,7 +20,7 @@
                                     <h4 class="card-title">Informe o endereço de {{ $dadosCliente->nomeCompleto }}</h4>
                                 </div>
                                 <div class="card-body">
-                                        <form action="{{ route('endereco.store' }}" class="form-group" method="POST">
+                                        <form action="{{ route('endereco.store') }}" class="form-group" method="POST">
                                             @csrf
                                             <input id="idClienteEndereco" value="{{ $dadosCliente->id }}" name="cliente_id" type="hidden">
                                             <input id="tkClienteEndereco" value="{{ $dadosCliente->uid }}" name="uid" type="hidden">
