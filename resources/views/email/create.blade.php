@@ -20,7 +20,7 @@
                                     <h4 class="card-title">Informe os emails de {{ $dadosCliente->nomeCompleto }}</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form action="/email/store/" class="form-group" method="post">
+                                    <form action="{{ route('email.store') }}" class="form-group" method="post">
                                         @csrf
                                         <input id="idClienteTelefone" value="{{ $dadosCliente->id }}" name="cliente_id" type="hidden">
                                         <input id="tkClienteTelefone" value="{{ $dadosCliente->uid }}" name="uid" type="hidden">
