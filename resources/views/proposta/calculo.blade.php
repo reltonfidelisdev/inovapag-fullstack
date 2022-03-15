@@ -50,7 +50,7 @@
                                 <input type="text" value="R$ {{ $valorDoEmprestimo ?? '' }}" class="form-control" disabled>
                             </div>
                             <div class="col-md-5">
-                            <label for="labelTaxaDeJuros" class="form-label">Calcular e Salvar Proposta</label>
+                            <label for="labelTaxaDeJuros" class="form-label">Calcular Proposta</label>
                             <div class="d-grid gap-2">
                                 <button class="btn btn-primary" id="btnDubmit" type="submit">Calcular Agora</button>
 
