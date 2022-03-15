@@ -19,7 +19,7 @@
                     </div>
                     <div class="card-body">
 
-                        <form class="row g-3 mt-3" method="post" action="/proposta/calculadora/">
+                        <form class="row g-3 mt-3" method="post" action="{{ route('proposta.calculadora') }}">
                         @csrf
                         <div class="col-md-2">
                             <label for="valorDoEmprestimo" class="form-label">Valor Solicitado</label>
