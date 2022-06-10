@@ -70,6 +70,10 @@ Route::get('/documento-proposta/list/{uid?}/{proposta_id?}', [\App\Http\Controll
 Route::get('/dados-empresariais/create/{uid?}', [\App\Http\Controllers\DadosEmpresariaisController::class, 'create'])->name('dados-empresariais.create');
 Route::post('/dados-empresariais/store', [\App\Http\Controllers\DadosEmpresariaisController::class, 'store'])->name('dados-empresariais.store');
 
+//Dados Empresariais
+Route::get('/banco/list', [\App\Http\Controllers\BancoController::class, 'index'])->name('banco.list');
+Route::post('/banco/store', [\App\Http\Controllers\BancoController::class, 'store'])->name('banco.store');
+
 
 // Dashboard
 Route::view('dashboard/home', 'dashboards.home');

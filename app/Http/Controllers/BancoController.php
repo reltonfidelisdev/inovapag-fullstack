@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Telefone;
-use Exception;
+use App\Models\banco;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class TelefoneController extends Controller
+class BancoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,8 @@ class TelefoneController extends Controller
      */
     public function index()
     {
-        //
+        $bancos = DB::table('bancos')->get();
+        return $bancos;
     }
 
     /**
@@ -24,13 +24,9 @@ class TelefoneController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($uid)
+    public function create()
     {
-        $cliente = DB::table('clientes')
-            ->where('uid', $uid)
-            ->get();
-        //dd($cliente);
-        return view('telefone.create')->with('cliente', $cliente);
+        //
     }
 
     /**
@@ -41,28 +37,7 @@ class TelefoneController extends Controller
      */
     public function store(Request $request)
     {
-        $telefone = new Telefone();
-        $telefone->cliente_id = $request->input('cliente_id');
-        $telefone->celularPrincipal = $request->input('celularPrincipal');
-        $telefone->fixoProprio = $request->input('fixoProprio');
-        $telefone->fixoRecados = $request->input('fixoRecados');
-
-        $validate = [
-            'cliente_id' => 'unique:telefones,id|required|min:1',
-            'celularPrincipal' => 'min:15|max:15'
-        ];
-        $messages = [
-            'cliente_id' => 'Já existe telefones salvos para este cliente',
-            'celularPrincipal.min' => 'Telefone Principal inválido! Siga o padrão (11) 98765-4321'
-        ];
-        $request->validate($validate, $messages);
-
-        try {
-            $telefone->save();
-            return redirect('/cliente/show/' . $request->uid);
-        } catch (\Exception $e) {
-            throw new Exception($e->getMessage());
-        }
+        //
     }
 
     /**

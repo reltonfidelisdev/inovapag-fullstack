@@ -17,8 +17,8 @@ class CreateTelefonesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('cliente_id');
             $table->string('celularPrincipal', 15); //(81) 99651-0559
-            $table->string('fixoProprio', 14); // (81) 3456-7890
-            $table->string('fixoRecados', 14);
+            $table->string('fixoProprio', 14)->nullable(); // (81) 3456-7890
+            $table->string('fixoRecados', 14)->nullable();
             $table->timestamps();
 
             //constraints

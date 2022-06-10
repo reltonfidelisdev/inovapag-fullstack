@@ -57,12 +57,12 @@
 
                                                 <div class="input-group mb-3">
                                                     <span class="input-group-text" ><i class="bi bi-pin-map"></i></span>
-                                                    <input type="text" name="complemento" class="form-control" required placeholder="Complemento, ex: Bloco 04, AP 404">
+                                                    <input type="text" name="complemento" class="form-control" placeholder="Complemento, ex: Bloco 04, AP 404">
                                                 </div>
 
                                                 <div class="input-group mb-3">
                                                     <span class="input-group-text" ><i class="bi bi-signpost-split"></i></span>
-                                                    <input type="text" name="pontoReferencia" required class="form-control" placeholder="Ponto de referência">
+                                                    <input type="text" name="pontoReferencia" class="form-control" placeholder="Ponto de referência">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">

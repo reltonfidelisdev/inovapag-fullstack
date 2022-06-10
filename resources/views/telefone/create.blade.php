@@ -31,14 +31,13 @@
                                           </div>
                                           <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-plus"></i></span>
-                                            <input required name="fixoProprio" maxlength="11" type="text" class="form-control phone" placeholder="Fixo Próprio">
+                                            <input name="fixoProprio" maxlength="11" type="text" class="form-control phone" placeholder="Fixo Próprio">
                                           </div>
                                           <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-forward"></i></span>
-                                            <input required name="fixoRecados" maxlength="11" type="text" class="form-control phone" placeholder="Fixo Recados">
+                                            <input name="fixoRecados" maxlength="11" type="text" class="form-control phone" placeholder="Fixo Recados">
                                           </div>
                                           <p>É possível cadastrar apenas 3 números por cliente</p>
-
                                         </div>
                                         <div class="modal-footer">
                                           <button data-bs-target="#my-modal" type="submit" class="btn btn-success"><i class="bi bi-check"></i> Salvar</button>

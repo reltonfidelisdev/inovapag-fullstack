@@ -29,18 +29,18 @@
                                                   <span class="input-group-text" id="basic-addon1"><i class="bi bi-bank"></i></span>
                                                   <select required class="form-select" name="codigoBanco" aria-label="Selecione a Instituição Bancária">
                                                     <option value="">Selecione o Banco</option>
-                                                    <option value="237 - Banco Bradesco">237 - Banco Bradesco</option>
-                                                    <option value="745 - Banco Citibank">745 - Banco Citibank</option>
-                                                    <option value="001 - Banco do Brasil">001 - Banco do Brasil</option>
-                                                    <option value="033 - Banco Santander">033 - Banco Santander</option>
-                                                    <option value="104 - Caixa Econômica Federal">104 - Caixa Econômica Federal</option>
-                                                    <option value="341 - Itaú Unibanco">341 - Itaú Unibanco</option>
+                                                    @if ($bancos)
+                                                        @foreach ($bancos as $banco)
+                                                            <option value="{{$banco->compe}} - {{$banco->razao_social}}">{{$banco->compe}} - {{$banco->razao_social}}</option>
+                                                        @endforeach
+                                                    @endif
                                                   </select>
                                               </div>
                                               <div class="input-group mb-3">
                                                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-piggy-bank"></i></span>
                                                 <select required class="form-select" name="tipoConta" aria-label="Default select example">
                                                   <option></option>
+                                                  <option value="Conta de Pagamento - Digital">Conta de Pagamentos - Digital</option>
                                                   <option value="Conta Corrente">Conta Corrente</option>
                                                   <option value="Conta Salário">Conta Salário</option>
                                                   <option value="Conta Poupança">Conta Poupança</option>

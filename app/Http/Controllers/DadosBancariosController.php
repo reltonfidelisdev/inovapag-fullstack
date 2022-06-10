@@ -26,11 +26,13 @@ class DadosBancariosController extends Controller
      */
     public function create($uid)
     {
+        $bancos = DB::table('bancos')->get();
+        //dd($bancos);
         $cliente = DB::table('clientes')
             ->where('uid', $uid)
             ->get();
         //dd($dadosBancarios->getAttributes());
-        return view('dados_bancarios.create')->with('cliente', $cliente);
+        return view('dados_bancarios.create')->with(['cliente'=> $cliente, 'bancos'=> $bancos]);
     }
 
     /**
@@ -53,14 +55,14 @@ class DadosBancariosController extends Controller
         $dadosBancarios->contaComDigito = $request->input('contaComDigito');
         //dd($dadosBancarios->getAttributes());
         $validate = [
-            'nomeBanco' => 'min:3|max:50',
+            'nomeBanco' => 'min:3|max:200',
             'tipoConta' => 'min:5',
             'agenciaComDigito' => 'min:3|max:15',
             'contaComDigito' => 'min:3|max:15'
         ];
         $messages = [
             'nomeBanco.min' => 'O Nome do Banco deve ter no mínimo 3 caracteres',
-            'nomeBanco.max' => 'O Nome do Banco deve ter no máximo 50 caracteres',
+            'nomeBanco.max' => 'O Nome do Banco deve ter no máximo 200 caracteres',
             'tipoConta.min' => 'O Tipo de Conta deve ter no mínimo 1 caractere',
             'agenciaComDigito.min' => 'A Agência deve ter no mínimo 3 caracteres',
             'agenciaComDigito.max' => 'A Agência deve ter no máximo 15 caracteres',
