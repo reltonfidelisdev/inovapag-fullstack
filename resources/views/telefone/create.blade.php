@@ -25,14 +25,17 @@
                                         <input id="idCliente" value="{{ $dadosCliente->id }}" name="cliente_id" type="hidden">
                                         <input id="uidCliente" value="{{ $dadosCliente->uid }}" name="uid" type="hidden">
                                         <div class="modal-body">
+                                        <span class="text-danger">Informação Requerida</span>
                                           <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-phone"></i></span>
                                             <input required name="celularPrincipal" maxlength="11" type="text" class="form-control sp_celphones" placeholder="Celular Principal">
                                           </div>
+                                          <span class="text-success">Informação Opcional</span>
                                           <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-plus"></i></span>
                                             <input name="fixoProprio" maxlength="11" type="text" class="form-control phone" placeholder="Fixo Próprio">
                                           </div>
+                                          <span class="text-success">Informação Opcional</span>
                                           <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-forward"></i></span>
                                             <input name="fixoRecados" maxlength="11" type="text" class="form-control phone" placeholder="Fixo Recados">

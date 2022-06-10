@@ -26,10 +26,12 @@
                                         <input id="tkClienteTelefone" value="{{ $dadosCliente->uid }}" name="uid" type="hidden">
                                         <input id="idClienteEmail" name="idCliente" hidden type="text">
                                         <div class="modal-body">
+                                          <span class="text-success">Informação Opcional</span>
                                           <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-check"></i></span>
-                                            <input required name="emailPrincipal" maxlength="200" type="text" class="form-control" placeholder="Email Principal">
+                                            <input name="emailPrincipal" maxlength="200" type="text" class="form-control" placeholder="Email Principal">
                                           </div>
+                                          <span class="text-success">Informação Opcional</span>
                                           <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-plus"></i></span>
                                             <input name="emailSecundario" maxlength="200" type="text" class="form-control" placeholder="Email secundário">

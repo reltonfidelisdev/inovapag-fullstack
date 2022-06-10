@@ -45,13 +45,12 @@ class EmailController extends Controller
         $email->emailSecundario = $request->input('emailSecundario');
         //dd($email->getAttributes());
 
-        $validate = [
-            'emailPrincipal' => 'min:7' // x@yz.io
-        ];
-        $messages = [
-            'emailPrincipal' => 'O Email Principal é obrigatório e deve ter no mínio 7 caracteres.',
-        ];
-        $request->validate($validate, $messages);
+        if(empty($request->input('emailPrincipal'))){
+            $email->emailPrincipal  = '.';
+        }
+        if(empty($request->input('emailSecundario'))){
+            $email->emailSecundario = '.';
+        }
 
         try {
             $email->save();
