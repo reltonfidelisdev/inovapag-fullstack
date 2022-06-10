@@ -30,7 +30,11 @@
                             <select name="tabelaDeCalculo" id="inputTabelaDeCalculo" class="form-select">
                                 @if ($tabelaJuros)
                                     @foreach ($tabelaJuros as $key => $value)
-                                    <option value='{{ $value }}'>{{ $key }}</option>
+                                        @if ($tabelaDeCalculo == $value)
+                                            <option value="{{ $value }}" selected>{{ $key }}</option>
+                                        @else
+                                            <option value='{{ $value }}'>{{ $key }}</option>
+                                        @endif
                                     @endforeach
                                 @endif
                             </select>

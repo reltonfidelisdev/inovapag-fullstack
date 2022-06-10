@@ -55,7 +55,8 @@ class PropostaController extends Controller
             ->leftJoin('dados_bancarios', 'dados_bancarios.cliente_id', '=', 'clientes.id')
             ->where('clientes.uid', $uid)->get();
         //dd($cliente);
-        return view('proposta.create')->with('cliente', $cliente)->with('tabelaJuros', $this->tabelaJuros);
+        return view('proposta.create')->with('cliente', $cliente)
+                                        ->with('tabelaJuros', $this->tabelaJuros);
     }
 
     /**
@@ -118,8 +119,9 @@ class PropostaController extends Controller
      */
     public function calculo(Request $request)
     {
-        //dd($request->all());
-        return view('proposta.calculo')->with('tabelaJuros', $this->tabelaJuros);
+        return view('proposta.calculo')
+                ->with('tabelaJuros', $this->tabelaJuros)
+                ->with('tabelaDeCalculo', $tabelaDeCalculo = null);
     }
 
     /**
@@ -130,6 +132,7 @@ class PropostaController extends Controller
      */
     public function calculadora(Request $request)
     {
+        //dd($request->all());
         $valor = $request->input('valorDoEmprestimo');
         $tabelaDeCalculo = $request->input('tabelaDeCalculo');
         $valor = preg_replace('/[^0-9]+/', '.', $valor);
@@ -148,7 +151,8 @@ class PropostaController extends Controller
             ->with('tabelaJuros', $this->tabelaJuros)
             ->with('limiteNecessario', $lmtNecessario)
             ->with('parcelaMensal', number_format($parcelaMensal, 2))
-            ->with('valorDoEmprestimo', number_format($valorSolicitado, 2));
+            ->with('valorDoEmprestimo', number_format($valorSolicitado, 2))
+            ->with('tabelaDeCalculo', $tabelaDeCalculo);
     }
 
     /**
@@ -170,7 +174,7 @@ class PropostaController extends Controller
             ->join('franquias', 'franquias.id', '=', 'propostas.franquia_id')
             ->join('atendentes', 'atendentes.id', '=', 'propostas.atendente_id')
             ->where('propostas.id', $proposta_id)->get();
-        //dd($cliente->toArray());
+
         return view('proposta.show')
             ->with('cliente', $cliente)
             ->with('tabelaJuros', $this->tabelaJuros)
